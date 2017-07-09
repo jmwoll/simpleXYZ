@@ -19,3 +19,15 @@ H 1.0 1.0 1.0
 H 2.0 2.0 2.0
 H 3.0 3.0 3.0
 ```
+
+Thus, it is very easy to perform simple geometry operations. The example below
+shows mirroring along the yz-plane:
+```
+from simpleXYZ import xyz
+mol = xyz.load_xyz(xyzfile="test.xyz")
+print(mol)
+mol = [(atom_symbol,-atom_x,atom_y,atom_z) for (atom_symbol,atom_x, atom_y, atom_z) in mol]
+print(mol)
+xyzstring = xyz.save_xyz(mol,xyzfile="test_mirrored.xyz")
+print(xyzstring)
+```
